@@ -61,7 +61,7 @@ class Game
   end
   
   def play
-    urn until over?
+    turn until over?
     if won?
       puts "Congratulations #{winner}!"
     elsif draw?
