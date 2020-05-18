@@ -45,19 +45,16 @@ class Game
     end
   end 
   
-  def turn 
-    player = current_player
-    current_move = player.move(@board)
-    if !@board.valid_move?(current_move)
+  def turn
+    puts "Please enter a number 1-9:"
+    @user_input = current_player.move(@board)
+    if @board.valid_move?(@user_input)
+      @board.update(@user_input, current_player)
+    else puts "Please enter a number 1-9:"
+      @board.display
       turn
-    else
-      puts "Turn: #{@board.turn_count+1}\n"
-      @board.display
-      @board.update(current_move, player)
-      puts "#{player.token} moved #{current_move}"
-      @board.display
-      puts "\n\n"
     end
+    @board.display
   end
   
   def play
