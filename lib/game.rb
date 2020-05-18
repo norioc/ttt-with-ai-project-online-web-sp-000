@@ -39,11 +39,12 @@ class Game
     won? || draw?
   end
   
-  def winner 
-    if winning_combo = won?
-      @winner = @board.cells[winning_combo.first]
+   def winner
+    if won?
+      combination = won?
+      @board.cells[combination[0]] # X or O
     end
-  end 
+  end
   
   def turn
     puts "Please enter a number 1-9:"
